@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
-const MONGODB_URI = 'mongodb://localhost/node-app' /*Por ahora lo dejamos asi, pero no es la idea usar este
-                                                     tipo de conexxion, porque no es seguro. Vamos a usar variables de entorno*/
+const {NOTES_APP_MONGODB_HOST, NOTES_APP_MONGODB_DATABASE} = process.env /*VARIABLES DE ENTORNO!*/
+const MONGODB_URI = `mongodb://${NOTES_APP_MONGODB_HOST}/${NOTES_APP_MONGODB_DATABASE}`
 
 mongoose.connect(MONGODB_URI, {
     useUnifiedTopology: true, //Estas dos configuraciones son necesarias para el buen funcionamiento de mongoose

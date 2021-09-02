@@ -6,7 +6,8 @@ Voy a intentar crear un sistema crud, primero lo voy a hacer con ayuda de un cur
  
 A partir del capítulo 3 voy a realizar un commit, así conservar un historial de lo que se avanza en cada momento.
 - Primer commit = (Servidor Web Básico con Nodejs y Expres)
- 
+- Segundo commit = (Base de Datos Mongodb (Sin variables de entorno))
+- Tercer commit = (Base de Datos Mongodb (Con variables de entorno))
 # comentarios
  
 Mi codigo va a estar completamente comentado ya que este es un ejercicio de aprendizaje.

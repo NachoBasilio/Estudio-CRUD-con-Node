@@ -12,6 +12,7 @@ A partir del capítulo 3 voy a realizar un commit, así conservar un historial d
 - Quinto commit = (Handlebars)
 - Sexto commit = (Bootstrap 4 y Font Awesome)
 - Septimo commit = (Rutas del Servidor Web con Expressjs)
+- Octavo commit = (Rutas de Nodejs y Express para las Notas)
 # comentarios:
  
 Mi codigo va a estar completamente comentado ya que este es un ejercicio de aprendizaje.

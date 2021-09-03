@@ -56,7 +56,7 @@ app.use(express.urlencoded({extended: false}))
 //Rutas (que voy a poder hacer)
 
 app.use(require('./routes/index.routes')) //Con esto indicamos que use el archivo index.routes.js como gestor de rutas
-
+app.use(require('./routes/notes.routes')) //Con esto indicamos que use el archivo notes.routes.js como gestor de rutas
 //Rutas end
 
 //Archivos estaticos (que no necesitan de una ruta)

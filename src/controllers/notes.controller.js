@@ -1,10 +1,12 @@
 const notesCtrl = {};
 
+//Esta funcion va a ser util para crear un formulario de creacion de notas.
 notesCtrl.renderNoteForm = (req, res) => {
-    res.send('notes/add');
+    res.render('notes/new-note')
 }
 
 notesCtrl.createNewNote = (req, res) => {
+    console.log(req.body);
     res.send('create new note');
 }
 

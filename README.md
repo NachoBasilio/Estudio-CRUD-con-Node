@@ -13,16 +13,17 @@ A partir del capítulo 3 voy a realizar un commit, así conservar un historial d
 - Sexto commit = (Bootstrap 4 y Font Awesome)
 - Septimo commit = (Rutas del Servidor Web con Expressjs)
 - Octavo commit = (Rutas de Nodejs y Express para las Notas)
+- Noveno Commit = (Handlebars y el formulario para crear Notas)
 # comentarios:
  
 Mi codigo va a estar completamente comentado ya que este es un ejercicio de aprendizaje.
  
 # dependencias principales:
  
---npm install express connect-flash bcryptjs express-handlebars express-session method-override mongoose passport passport-local
+--npm install express connect-flash bcryptjs express-handlebars express-session method-override mongoose passport passport-local 
  
 # dependencias de desarrollo:
  
---npm install dotenv nodemon npm-check-updates -D
+--npm install dotenv nodemon npm-check-updates morgan -D
 
 

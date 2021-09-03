@@ -4,6 +4,8 @@ const exphbs = require("express-handlebars")
     este es un motor de plantillas */
 const path = require('path');
 
+const morgan = require('morgan');// modulo para ver las peticiones que se hacen al servidor
+
 //Vamos a dividir el codigo en distintas secciones
 
 //Inicializaciones
@@ -43,6 +45,8 @@ app.set('view engine', '.hbs') //Con esto configuramos el motor de plantillas
 nosotros vamos a usar método de express llamado "urlencoded" así siempre tomamos los datos
 que nos llegan del servidor y los transformamos en un formato tipo json  */
 app.use(express.urlencoded({extended: false}))
+
+app.use(morgan('dev')) //Con esto vamos a ver las peticiones que se hacen al servidor
 
 //Middlewares end
 

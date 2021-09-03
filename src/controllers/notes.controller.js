@@ -15,7 +15,7 @@ notesCtrl.createNewNote = async (req, res) => {
     const newNote = new Note({title, description}) //Instanciamos una nueva nota con los datos que nos llegaron del formulario.
 
     await newNote.save() //Guardamos la nota en la base de datos.
-    res.send(newNote);
+    res.redirect('/notes');
 }
 
 //En esta funcion vamos a renderizar las notas, aqui terminaremos cuando creemos una nota nueva tambien.
@@ -32,8 +32,9 @@ notesCtrl.updateNote = (req, res) => {
     res.send('update note');
 }
 
-notesCtrl.deleteNote = (req, res) => {
-    res.send('delete note');
+notesCtrl.deleteNote = async (req, res) => {
+    await Note.findByIdAndDelete(req.params.id);
+    res.redirect('/notes');
 }
 
 module.exports = notesCtrl;

@@ -7,7 +7,9 @@
                     {{title}} <a href="/note/edit/{{_id}}"><i class="fas fa-edit"></i></a>
                     </h4>
                 <p>{{description}}</p>
-                <form action="/notes/delete/{{_id}}" method="POST">
+                <form action="/notes/delete/{{_id}}?_method=DELETE" method="POST">
+                <input type="hidden" name="_method" id="DELETE">
+                {{!-- Tenemos un problema muy interezante y es que con ayuda de una libreria, ya que es muy complicado hacer uso de DELETE con un formulario, "method-override" y vamos a hacer peticiones de manera mas simple--}}
                     <button class="btn btn-danger btn-block btn-sm" type="submit">
                         Delete
                     </button>

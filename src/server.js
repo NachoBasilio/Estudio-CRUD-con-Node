@@ -4,7 +4,10 @@ const exphbs = require("express-handlebars")
     este es un motor de plantillas */
 const path = require('path');
 
+const methodOverride = require('method-override')//Este modulo nos permite sobreescribir los metodos de peticiones y es un Middleware
+
 const morgan = require('morgan');// modulo para ver las peticiones que se hacen al servidor
+const { use } = require('./routes/index.routes');
 
 //Vamos a dividir el codigo en distintas secciones
 
@@ -47,6 +50,8 @@ que nos llegan del servidor y los transformamos en un formato tipo json  */
 app.use(express.urlencoded({extended: false}))
 
 app.use(morgan('dev')) //Con esto vamos a ver las peticiones que se hacen al servidor
+
+app.use(methodOverride('_method')) //Con esto vamos a sobreescribir los metodos de peticiones
 
 //Middlewares end
 

@@ -15,6 +15,7 @@ A partir del capítulo 3 voy a realizar un commit, así conservar un historial d
 - Octavo commit = (Rutas de Nodejs y Express para las Notas)
 - Noveno Commit = (Handlebars y el formulario para crear Notas)
 - Decimo Commit = (Renderizando Lista Notas a traves de Handlebars)
+- Decimo Primer Commit = (Eliminando Notas en la base de datos Mongodb)
 
 # comentarios:
  

@@ -13,4 +13,4 @@ const NoteSchema = new Schema({ //Esquema de como se van a guardar los datos en 
     timestamps: true // agrega "createdAt" y "updatedAt" a los documentos (Cuando fue creado y cuando fue actualizado)
 })
 
-model.exports = model("Note", NoteSchema) //Crea el modelo de la base de datos
+module.exports = model("Note", NoteSchema) //Crea el modelo de la base de datos

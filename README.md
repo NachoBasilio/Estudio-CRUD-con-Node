@@ -1,6 +1,6 @@
 # crud_con_node
  
-Voy a intentar crear un sistema crud, primero lo voy a hacer con ayuda de un curso y luego intentaré hacer algo parecido por mi cuenta.
+Voy a intentar crear un sistema CRUD, primero lo voy a hacer con ayuda de un curso y luego intentaré hacer algo parecido por mi cuenta.
  
 # commits:
  
@@ -14,6 +14,8 @@ A partir del capítulo 3 voy a realizar un commit, así conservar un historial d
 - Septimo commit = (Rutas del Servidor Web con Expressjs)
 - Octavo commit = (Rutas de Nodejs y Express para las Notas)
 - Noveno Commit = (Handlebars y el formulario para crear Notas)
+- Decimo Commit = (Renderizando Lista Notas a traves de Handlebars)
+
 # comentarios:
  
 Mi codigo va a estar completamente comentado ya que este es un ejercicio de aprendizaje.

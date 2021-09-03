@@ -20,16 +20,27 @@ notesCtrl.createNewNote = async (req, res) => {
 
 //En esta funcion vamos a renderizar las notas, aqui terminaremos cuando creemos una nota nueva tambien.
 notesCtrl.renderNotes = async (req, res) => {
-    const notes = await Note.find().lean(); //Aca vamos a buscar todas las notas que tenemos en la base de datos. La funcion lean() nos va a devolver una lista de notas sin el objeto de mongoose, lo pasa a una lista de objetos JSON.
+    const notes = await Note.find().lean() //Aca vamos a buscar todas las notas que tenemos en la base de datos. La funcion lean() nos va a devolver una lista de notas sin el objeto de mongoose, lo pasa a una lista de objetos JSON.
     res.render('notes/all-notes', {notes})
 }
 
-notesCtrl.renderEditForm = (req, res) => {
-    res.send('notes/edit');
+//En esta funcion vamos a renderizar la pagina de editar notas en funcione del id que le mandamos.
+notesCtrl.renderEditForm = async (req, res) => {
+    const note = await Note.findById(req.params.id).lean()
+
+    res.render('notes/edit-note', {note});
 }
 
-notesCtrl.updateNote = (req, res) => {
-    res.send('update note');
+//Aqui, en esta funcion, vamos a proceder a actualizar los valores dentro de la base de datos.
+notesCtrl.updateNote = async (req, res) => {
+    // const {title, description} = req.body
+    // const note = await Note.findById(req.params.id)
+    // note.title = title
+    // note.description = description
+    // await note.save()
+    const {title, description} = req.body
+    await Note.findByIdAndUpdate(req.params.id, {title, description})
+    res.redirect('/notes');
 }
 
 notesCtrl.deleteNote = async (req, res) => {

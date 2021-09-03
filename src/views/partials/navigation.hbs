@@ -23,6 +23,23 @@
         </li>
       </ul>
       <ul class="navbar-nav ml-auto">
+        <div class="dropdown">
+          <button
+            class="btn btn-secondary dropdown-toggle"
+            type="button"
+            id="dropdownMenuButton"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false">
+            Notes
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="/notes">Todas las notas</a>
+            <a class="dropdown-item" href="/notes/add">Agraga una nota</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Logout</a>
+          </div>
+        </div>
         <li class="nav-item">
           <a href="#" class="nav-link">Login</a>
         </li>

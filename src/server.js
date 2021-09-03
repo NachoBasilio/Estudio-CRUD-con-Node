@@ -12,7 +12,7 @@ const app = express()
 
 //Configuraciones (Lo que quiero que haga el servidor)
 
-app.set('port', process.env.PORT/* Hace referencia a una variable de entorno llamada "PORT" */ || 4000)
+app.set('port', process.env.PORT/* Hace referencia a una variable de entorno llamada "PORT" */ || 3500)
 
 /* Node siempre busca la carpeta "view" en la carpeta raíz de nuestro proyecto,
 sucede que nosotros la tenemos en la carpeta "src" por lo que tenemos que "mostrarle"
@@ -55,9 +55,7 @@ app.use(express.urlencoded({extended: false}))
 
 //Rutas (que voy a poder hacer)
 
-app.get("/", (req, res) => {
-    res.render('index')//Solo tenemos que espesificar el nombre de la plantilla ya que todo el resto ya lo hicimos antes
-}) 
+app.use(require('./routes/index.routes')) //Con esto indicamos que use el archivo index.routes.js como gestor de rutas
 
 //Rutas end
 

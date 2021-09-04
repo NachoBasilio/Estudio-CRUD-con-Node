@@ -17,7 +17,7 @@ A partir del capítulo 3 voy a realizar un commit, así conservar un historial d
 - Decimo Commit = (Renderizando Lista Notas a traves de Handlebars)
 - Decimo Primer Commit = (Eliminando Notas en la base de datos Mongodb)
 - Decimo Segundo Commit = (Actualización de Notas de la base de datos (Terminamos con todas las siglas de CRUD))
-
+- Decimo Tercer Commit = (Mensajes con connect-flash)
 
 # comentarios:
  

@@ -1,0 +1,12 @@
+{{!-- Aca vamos a crear un bloque que va a mostrar un mensaje siempre que exista --}}
+
+{{#if success_msg}}
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {{success_msg}}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span>&times;</span>
+        </button>
+    </div>
+    
+
+{{/if}}

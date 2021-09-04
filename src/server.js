@@ -2,7 +2,11 @@ const express = require('express')
 const exphbs = require("express-handlebars") 
 /* Express handlebars es un modulo que nos va facilitar el hecho de manejar archivos HTML, 
     este es un motor de plantillas */
+const session = require('express-session')// modulo para manejar sesiones de usuario.
+
 const path = require('path');
+
+const flash = require('connect-flash'); // Para mostrar mensajes al usuario.
 
 const methodOverride = require('method-override')//Este modulo nos permite sobreescribir los metodos de peticiones y es un Middleware
 
@@ -53,11 +57,24 @@ app.use(morgan('dev')) //Con esto vamos a ver las peticiones que se hacen al ser
 
 app.use(methodOverride('_method')) //Con esto vamos a sobreescribir los metodos de peticiones
 
+//Estas dos son middlewares que vamos a usar para manejar sesiones de usuario
+//Con este modulo vamos a guardar los mensajes que vamos a mandar dentro del servidor
+app.use(session({
+    secret: 'secret',//Esta es una clave secreta que se usa para encriptar la sesión
+    resave: true,//Esto es para que no se pierda la sesion cuando no se hace ninguna peticion
+    saveUninitialized: true,//Con esto vamos a decirle al servidor que guarde sesiones inicializadas
+}))
+app.use(flash()) //Con esto vamos a mostrar mensajes al usuario, despues de inicializar todas estas configuraciones basicas, vamos a ir a nuestro router y en cada ruta vamos a usar este middleware, al menos en las que nos interesan.
+
 //Middlewares end
 
 
 //Variables globales
+app.use((req, res, next) => { //Con esto vamos a poder usar las variables globales en todas las rutas
+    res.locals.success_msg = req.flash('success_msg')//Gracias a este codigo, vamos a poder usar las variables globales en todas las rutas y vistas.
 
+    next()//Esto es para que el servidor siga ejecutando las rutas, es obligatorio ejecutar el next().
+})
 
 //Variables globales end
 

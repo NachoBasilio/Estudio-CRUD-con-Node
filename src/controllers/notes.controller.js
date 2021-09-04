@@ -15,6 +15,8 @@ notesCtrl.createNewNote = async (req, res) => {
     const newNote = new Note({title, description}) //Instanciamos una nueva nota con los datos que nos llegaron del formulario.
 
     await newNote.save() //Guardamos la nota en la base de datos.
+
+    req.flash('success_msg', 'Nota agragada de manera correcta')//Aca vamos a mandar un mensaje de exito.
     res.redirect('/notes');
 }
 
@@ -40,11 +42,13 @@ notesCtrl.updateNote = async (req, res) => {
     // await note.save()
     const {title, description} = req.body
     await Note.findByIdAndUpdate(req.params.id, {title, description})
+    req.flash('success_msg', 'Nota actualizada de manera correcta')//Usamos el mismo nombre para definir distintos mensajes en una misma "categoria".
     res.redirect('/notes');
 }
 
 notesCtrl.deleteNote = async (req, res) => {
     await Note.findByIdAndDelete(req.params.id);
+    req.flash('success_msg', 'Nota eliminada de manera correcta')//Todos estos mensajes luego pueden ser trabajados al mismo tiempo, vamos a hacer que se vean en verde, por ejemplo.
     res.redirect('/notes');
 }
 

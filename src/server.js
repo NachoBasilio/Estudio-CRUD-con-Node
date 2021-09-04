@@ -81,9 +81,13 @@ app.use((req, res, next) => { //Con esto vamos a poder usar las variables global
 
 //Rutas (que voy a poder hacer)
 
-app.use(require('./routes/index.routes')) //Con esto indicamos que use el archivo index.routes.js como gestor de rutas
-app.use(require('./routes/notes.routes')) //Con esto indicamos que use el archivo notes.routes.js como gestor de rutas
+app.use(require('./routes/index.routes')) //Con esto indicamos que use el archivo index.routes.js como gestor de rutas generales
+app.use(require('./routes/notes.routes')) //Con esto indicamos que use el archivo notes.routes.js como gestor de rutas respecto a las notas
+app.use(require('./routes/users.routes')) //Con esto indicamos que use el archivo users.routes.js como gestor de rutas en funcion de los usuarios
+
+
 //Rutas end
+
 
 //Archivos estaticos (que no necesitan de una ruta)
 

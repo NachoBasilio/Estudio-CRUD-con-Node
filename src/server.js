@@ -13,10 +13,12 @@ const methodOverride = require('method-override')//Este modulo nos permite sobre
 const morgan = require('morgan');// modulo para ver las peticiones que se hacen al servidor
 const { use } = require('./routes/index.routes');
 
+const passport = require('passport');// modulo para manejar sesiones de usuario.
 //Vamos a dividir el codigo en distintas secciones
 
 //Inicializaciones
 const app = express()
+require('./config/passport');
 //Inicializaciones end
 
 //Configuraciones (Lo que quiero que haga el servidor)
@@ -64,7 +66,10 @@ app.use(session({
     resave: true,//Esto es para que no se pierda la sesion cuando no se hace ninguna peticion
     saveUninitialized: true,//Con esto vamos a decirle al servidor que guarde sesiones inicializadas
 }))
+app.use(passport.initialize());//Con esto vamos a inicializar passport
+app.use(passport.session());//Con esto vamos a inicializar passport (Las dos son necesarias)
 app.use(flash()) //Con esto vamos a mostrar mensajes al usuario, despues de inicializar todas estas configuraciones basicas, vamos a ir a nuestro router y en cada ruta vamos a usar este middleware, al menos en las que nos interesan.
+
 
 //Middlewares end
 
@@ -73,6 +78,8 @@ app.use(flash()) //Con esto vamos a mostrar mensajes al usuario, despues de inic
 app.use((req, res, next) => { //Con esto vamos a poder usar las variables globales en todas las rutas
     res.locals.success_msg = req.flash('success_msg')//Gracias a este codigo, vamos a poder usar las variables globales en todas las rutas y vistas.
     res.locals.error_msg = req.flash('error_msg')
+    res.locals.error_msg = req.flash('error')
+    res.locals.user = req.user || null //Con esto vamos a poder usar la variable "user" en todas las rutas y vistas
     next()//Esto es para que el servidor siga ejecutando las rutas, es obligatorio ejecutar el next().
 })
 

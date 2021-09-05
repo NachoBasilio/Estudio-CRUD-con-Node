@@ -20,6 +20,7 @@ A partir del capítulo 3 voy a realizar un commit, así conservar un historial d
 - DecimoTercer Commit = (Mensajes con connect-flash)
 - DecimoCuarto Commit = (Vistas de Login y Registro de Usuarios)
 - DecimoQuinto Commit = (Registro de Usuario o SignUp)
+- DecimoSexto Commit = (Login de Usuarios con Passport y bcrypt)
 
 # comentarios:
  

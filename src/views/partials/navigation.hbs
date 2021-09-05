@@ -23,29 +23,34 @@
         </li>
       </ul>
       <ul class="navbar-nav ml-auto">
-        <div class="dropdown">
-          <button
-            class="btn btn-secondary dropdown-toggle"
-            type="button"
-            id="dropdownMenuButton"
-            data-toggle="dropdown"
-            aria-haspopup="true"
-            aria-expanded="false">
-            Notes
-          </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="/notes">Todas las notas</a>
-            <a class="dropdown-item" href="/notes/add">Agraga una nota</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Logout</a>
+        {{#if user}}
+        <li>
+          <div class="dropdown">
+              <button
+                class="btn btn-secondary dropdown-toggle"
+                type="button"
+                id="dropdownMenuButton"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false">
+                Notes
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="/notes">Todas las notas</a>
+                <a class="dropdown-item" href="/notes/add">Agraga una nota</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="/user/logout">Logout</a>
+              </div>
           </div>
-        </div>
+        </li>
+        {{else}}
         <li class="nav-item">
           <a href="/user/singin" class="nav-link">Login</a>
         </li>
         <li class="nav-item">
           <a href="/user/singup" class="nav-link">Register</a>
         </li>
+        {{/if}}
       </ul>
     </div>
   </div>

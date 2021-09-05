@@ -19,6 +19,7 @@ A partir del capítulo 3 voy a realizar un commit, así conservar un historial d
 - DecimoSegundo Commit = (Actualización de Notas de la base de datos (Terminamos con todas las siglas de CRUD))
 - DecimoTercer Commit = (Mensajes con connect-flash)
 - DecimoCuarto Commit = (Vistas de Login y Registro de Usuarios)
+- DecimoQuinto Commit = (Registro de Usuario o SignUp)
 
 # comentarios:
  

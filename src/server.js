@@ -72,7 +72,7 @@ app.use(flash()) //Con esto vamos a mostrar mensajes al usuario, despues de inic
 //Variables globales
 app.use((req, res, next) => { //Con esto vamos a poder usar las variables globales en todas las rutas
     res.locals.success_msg = req.flash('success_msg')//Gracias a este codigo, vamos a poder usar las variables globales en todas las rutas y vistas.
-
+    res.locals.error_msg = req.flash('error_msg')
     next()//Esto es para que el servidor siga ejecutando las rutas, es obligatorio ejecutar el next().
 })
 

@@ -17,7 +17,7 @@ passport.use(new LocalStrategy({//Nos permite crear una estrategia de autenticac
         if(match){
             return done(null, user)
         }else{
-            return done(null, false, {message: "Contraseña incorrecta"})
+            return done(null, false, {message: "Contraseña incorrecta"})//message es un mensaje que se va a mostrar en el front, para mostrarlo con handlebars se usa "error" ya que passport lo va a entender así
         }
     }
 }))

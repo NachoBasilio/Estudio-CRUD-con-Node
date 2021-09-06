@@ -36,4 +36,8 @@ Mi codigo va a estar completamente comentado ya que este es un ejercicio de apre
  
 --npm install dotenv nodemon npm-check-updates morgan -D
 
+# variables de entorno: 
 
+* PORT
+* NOTES_APP_MONGODB_HOST=localhost
+* NOTES_APP_MONGODB_DATABASE=note-app

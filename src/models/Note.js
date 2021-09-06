@@ -9,6 +9,10 @@ const NoteSchema = new Schema({ //Esquema de como se van a guardar los datos en 
         type: String,
         required: true
     },
+    user:{
+        type: String,
+        required: true,
+    }
 }, {
     timestamps: true // agrega "createdAt" y "updatedAt" a los documentos (Cuando fue creado y cuando fue actualizado)
 })

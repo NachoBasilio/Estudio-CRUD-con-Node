@@ -22,6 +22,7 @@ A partir del capítulo 3 voy a realizar un commit, así conservar un historial d
 - DecimoQuinto Commit = (Registro de Usuario o SignUp)
 - DecimoSexto Commit = (Login de Usuarios con Passport y bcrypt)
 - DecimoSeptimo Commit = (Proteger las rutas de Express con Passport)
+- DecimoOctavo Commit = (Actualizando las notas publicas a privadas)
 
 # comentarios:
  

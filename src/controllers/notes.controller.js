@@ -12,7 +12,7 @@ notesCtrl.renderNoteForm = (req, res) => {
 notesCtrl.createNewNote = async (req, res) => {
     const {title, description} = req.body //Esta forma de desestructurar los datos que nos llegan desde el formulario es la mas facil de entender que llenar todo de puntos.
 
-    const newNote = new Note({title, description}) //Instanciamos una nueva nota con los datos que nos llegaron del formulario.
+    const newNote = new Note({title, description, user: req.user.id}) //Instanciamos una nueva nota con los datos que nos llegaron del formulario.
 
     await newNote.save() //Guardamos la nota en la base de datos.
 
@@ -22,13 +22,17 @@ notesCtrl.createNewNote = async (req, res) => {
 
 //En esta funcion vamos a renderizar las notas, aqui terminaremos cuando creemos una nota nueva tambien.
 notesCtrl.renderNotes = async (req, res) => {
-    const notes = await Note.find().lean() //Aca vamos a buscar todas las notas que tenemos en la base de datos. La funcion lean() nos va a devolver una lista de notas sin el objeto de mongoose, lo pasa a una lista de objetos JSON.
+    const notes = await Note.find({user: req.user.id}).lean() //Aca vamos a buscar todas las notas que tenemos en la base de datos. La funcion lean() nos va a devolver una lista de notas sin el objeto de mongoose, lo pasa a una lista de objetos JSON.
     res.render('notes/all-notes', {notes})
 }
 
 //En esta funcion vamos a renderizar la pagina de editar notas en funcione del id que le mandamos.
 notesCtrl.renderEditForm = async (req, res) => {
     const note = await Note.findById(req.params.id).lean()
+    if(note.user != req.user.id){//Aca vamos a verificar que la nota que queremos editar sea de la misma persona que esta logueada.
+        req.flash('error_msg', 'No tienes permisos para editar esta nota')
+        return res.redirect('/notes')
+    }
 
     res.render('notes/edit-note', {note});
 }
